@@ -1,7 +1,7 @@
 {
-  "name": "ember-scrollbar",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "ember-cli-scrollbar",
+  "version": "0.1.0",
+  "description": "Ember addon that wraps perfect scrollbar.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -13,9 +13,9 @@
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4.0.0"
   },
-  "author": "",
+  "author": "Martin Moravek",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -41,7 +41,8 @@
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "perfect-scrollbar"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6"

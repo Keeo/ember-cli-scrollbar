@@ -1,6 +1,6 @@
-# Ember-scrollbar
+# Ember-cli-scrollbar
 
-This README outlines the details of collaborating on this Ember addon.
+Wrapper for perfect scrollbar.
 
 ## Installation
 
