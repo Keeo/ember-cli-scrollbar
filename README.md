@@ -1,6 +1,6 @@
 # Ember-cli-scrollbar
 
-Another wrapper for [perfect-scrollbar](https://github.com/noraesae/perfect-scrollbar). This one  can be used as a mixin or component and events comming from *perfect-scrollbar* are directed
+Another wrapper for [perfect-scrollbar](https://github.com/noraesae/perfect-scrollbar). This one  can be used as a mixin or component and events coming from *perfect-scrollbar* are directed
 to functions in component and send out as actions. See usage for examples.
 
 This addon was created as compilation of [ember-perfect-scroll](https://github.com/imanhodjaev/ember-perfect-scroll) and [ember-perfect-scrollbar](https://github.com/null-null-null/ember-perfect-scrollbar).
@@ -9,7 +9,7 @@ This addon was created as compilation of [ember-perfect-scroll](https://github.c
 
 `ember install ember-cli-scrollbar`
 
-Bower dependency will be automaticaly added so version of *perfect-scrollbar* can be set independently of this addon.
+Bower dependency will be automatically added so version of *perfect-scrollbar* can be set independently of this addon.
 
 ## Usage as mixin
 
