@@ -1,27 +1,40 @@
 # Ember-cli-scrollbar
 
-Wrapper for perfect scrollbar.
+Another wrapper for [perfect-scrollbar](https://github.com/noraesae/perfect-scrollbar). This one  can be used as a mixin or component and events comming from *perfect-scrollbar* are directed
+to functions in component and send out as actions. See usage for examples.
+
+This addon was created as compilation of [ember-perfect-scroll](https://github.com/imanhodjaev/ember-perfect-scroll) and [ember-perfect-scrollbar](https://github.com/null-null-null/ember-perfect-scrollbar).
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-scrollbar`
-* `npm install`
-* `bower install`
+`ember install ember-cli-scrollbar`
 
-## Running
+Bower dependency will be automaticaly added so version of *perfect-scrollbar* can be set independently of this addon.
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+## Usage as mixin
 
-## Running Tests
+```js
+import Ember from 'ember';
+import PerfectScrollbarMixin from 'ember-cli-scrollbar/mixins/perfect-scrollbar';
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+export default Ember.Component.extend(PerfectScrollbarMixin, {
+  // options for perfect scrollbar
+  perfectScrollbarOptions: {
+    suppressScrollX: true,
+  },
 
-## Building
+  // camelized name of event from perfect scrollbar
+  psScrollLeft(event) {
+  }
+});
+```
 
-* `ember build`
+## Usage as component
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+```hbs
+{{#perfect-scrollbar
+  perfectScrollbarOptions=(hash suppressScrollX=true)
+  psScrollLeft=(action "psScrollLeft")
+}}
+{{/perfect-scrollbar}}
+```
