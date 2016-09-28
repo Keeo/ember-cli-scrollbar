@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-scrollbar",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Ember addon that wraps perfect scrollbar.",
   "directories": {
     "doc": "doc",
@@ -12,8 +12,8 @@
     "test": "ember try:each"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Keeo/ember-cli-scrollbar"
+    "type": "git",
+    "url": "https://github.com/Keeo/ember-cli-scrollbar"
   },
   "engines": {
     "node": ">= 4.0.0"
