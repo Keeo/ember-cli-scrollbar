@@ -39,6 +39,10 @@ export default Ember.Mixin.create({
     PerfectScrollbar.destroy(this.element);
   },
 
+  psUpdate() {
+    PerfectScrollbar.update(this.element);
+  },
+
   _registerAction(action) {
     return Ember.run.bind(this, function() {
       const args = Array.prototype.slice.call(arguments);
