@@ -1,7 +1,5 @@
-module.exports = {
-  normalizeEntityName: function() {},
+/* jshint node: true */
 
-  afterInstall: function() {
-    return this.addBowerPackageToProject('perfect-scrollbar');
-  }
+module.exports = {
+  normalizeEntityName: function() {}
 };
