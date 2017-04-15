@@ -9,8 +9,6 @@ This addon was created as compilation of [ember-perfect-scroll](https://github.c
 
 `ember install ember-cli-scrollbar`
 
-Bower dependency will be automatically added to your `bower.json` so version of *perfect-scrollbar* can be set independently of this addon.
-
 ## Usage as mixin
 
 ```js
