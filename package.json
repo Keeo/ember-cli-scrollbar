@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-scrollbar",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Ember addon that wraps perfect scrollbar.",
   "directories": {
     "doc": "doc",
