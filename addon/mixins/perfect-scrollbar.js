@@ -1,5 +1,6 @@
 import Ember from 'ember';
-const {computed, typeOf, String: {camelize}} = Ember;
+import PerfectScrollbar from 'perfect-scrollbar';
+const {typeOf, String: {camelize}} = Ember;
 
 const events = [
   'ps-scroll-y',
