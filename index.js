@@ -16,6 +16,7 @@ module.exports = {
 
       app.import(vendor + '/perfect-scrollbar/js/perfect-scrollbar.js');
       app.import(vendor + '/perfect-scrollbar/css/perfect-scrollbar.css');
+      app.import(vendor + '/shims/perfect-scrollbar.js');
 
     }
 
