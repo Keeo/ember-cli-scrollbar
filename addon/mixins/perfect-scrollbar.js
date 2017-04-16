@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import PerfectScrollbar from 'perfect-scrollbar';
 const {typeOf, String: {camelize}} = Ember;
 
 const events = [
