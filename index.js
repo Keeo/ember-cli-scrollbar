@@ -1,40 +1,71 @@
 /* eslint-env node */
 'use strict';
 
-var Funnel = require('broccoli-funnel');
-var mergeTrees = require('broccoli-merge-trees');
-var path = require('path');
+const Funnel = require('broccoli-funnel');
+const mergeTrees = require('broccoli-merge-trees');
+const BroccoliDebug = require('broccoli-debug');
+const fastbootTransform = require('fastboot-transform');
+const path = require('path');
 
 module.exports = {
   name: 'ember-cli-scrollbar',
 
   included(app) {
+    let vendor = this.treePaths.vendor;
+    let dir = `${vendor}/perfect-scrollbar`;
 
-    if (!isFastBoot()) {
-      const vendor = this.treePaths.vendor;
-
-      app.import(vendor + '/perfect-scrollbar/js/perfect-scrollbar.js');
-      app.import(vendor + '/perfect-scrollbar/css/perfect-scrollbar.css');
-
-    }
+    app.import(`${dir}/js/perfect-scrollbar.js`);
+    app.import(`${dir}/css/perfect-scrollbar.css`);
 
     return this._super.included.apply(this, arguments);
   },
 
   treeForVendor(vendorTree) {
-    var trees = [];
+    let debugTree = BroccoliDebug.buildDebugCallback(this.name),
+        trees = [];
 
     if (vendorTree) {
-      trees.push(vendorTree);
+      trees.push(
+        debugTree(vendorTree, 'vendorTree')
+      );
     }
 
-    trees.push(moduleToFunnel('perfect-scrollbar', {
-      srcDir: 'dist',
-      include: ['**/*.js', '**/*.css'],
-      destDir: 'perfect-scrollbar'
-    }));
+    let js = fastbootTransform(
+      moduleToFunnel('perfect-scrollbar', {
+        srcDir: 'dist',
+        include: ['**/*.js'],
+        destDir: 'perfect-scrollbar'
+      }, true)
+    );
 
-    return mergeTrees(trees);
+    trees.push(
+      debugTree(js, 'perfect-scrollbar:js')
+    );
+
+    return debugTree(mergeTrees(trees), 'mergedVendorTrees');
+  },
+
+  treeForStyles(styleTree) {
+    let debugTree = BroccoliDebug.buildDebugCallback(this.name),
+        trees = [];
+
+    if (styleTree) {
+      trees.push(
+        debugTree(styleTree, 'styleTree')
+      );
+    }
+
+    let css = moduleToFunnel('perfect-scrollbar', {
+      srcDir: 'dist',
+      include: ['**/*.css'],
+      destDir: 'perfect-scrollbar'
+    });
+
+    trees.push(
+      debugTree(css, 'perfect-scrollbar:css')
+    );
+
+    return debugTree(mergeTrees(trees), 'mergedStyleTrees');
   },
 
 };
@@ -46,11 +77,4 @@ function moduleToFunnel(moduleName, opts) {
 
 function resolveModulePath(moduleName) {
   return path.dirname(require.resolve(moduleName));
-}
-
-// Checks to see whether this build is targeting FastBoot. Note that we cannot
-// check this at boot time--the environment variable is only set once the build
-// has started, which happens after this file is evaluated.
-function isFastBoot() {
-  return process.env.EMBER_CLI_FASTBOOT === 'true';
 }
